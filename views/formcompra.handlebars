@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+        <h2 class="text-center pt-5 pb-3">Processamento da compra</h2>
+    </div>
+</div>
+
+{{#each rows}}
+<div class="container-fluid">
+    <div class="row text-center">
+        <div class="col-md-6 text-center">
+            <h3 class="mb-5">Descrição</h3>
+            <h4>Nome do produto:</h4>
+            <div>
+                {{this.nome}}
+            </div>
+            <h4>Valor do produto (R$)</h4>
+            <div>
+                {{this.valor}}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <table>
+                <form action='/compra/{{this.id}}' method="POST">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Preencha seus dados abaixo para finalizar a compra</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Nome Completo" name="nome" required>
+                            <label for="floatingInput">Nome</label>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="CPF (números)" name="cpf" required>
+                            <label for="floatingInput">CPF</label>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Telefone DDD + numero"
+                                 name="telefone" required>
+                            <label for="floatingInput">Telefone</label>
+                        </div>
+                    </div>
+                    <div class="col-12 text-start">
+                        <button href="/compra/{{this.id}}" class="btn btn-dark" type="submit">Gerar Boleto</button>
+                        <a href="/produtos" class="btn  btn-secondary">Voltar</a>
+                    </div>
+                </form>
+            </table>
+        </div>
+    </div>
+</div>
+
+{{/each}}

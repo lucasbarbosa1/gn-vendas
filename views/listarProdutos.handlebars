@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="row">
+        <h2 class="text-center pt-5 pb-3">Produtos cadastrados</h2>
+    </div>
+
+</div>
+<div class="container-fluid">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+            <th scope="col" class="col-md-1">Id</th>
+            <th scope="col" class="col-md-5">Nome do Produto</th>
+            <th scope="col" class="col-md-2">Preço (em R$)</th>
+            <th scope="col" class="col-md-4"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each rows}}
+            <tr>
+            <th scope="col">{{this.id}}</th>
+            <td>{{this.nome}}</td>
+            <td>{{this.valor}}</td>
+            <th scope="row"> 
+                <a href="/compra/{{this.id}}" type="button" class="btn btn-dark">Comprar</a>
+            </th>
+            </tr>
+
+            {{/each}}
+
+        </tbody>
+    </table>
+    <div class="row mt-5">
+        <div class="col-md-12 text-center">
+            <a href="/cadastrar" class="btn btn-dark text-center">Cadastrar novo produto</a>
+        </div>
+    </div>
+</div>
+
+
+<tbody>

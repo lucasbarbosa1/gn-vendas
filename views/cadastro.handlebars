@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="row">
+        <h2 class="text-start pt-5 pb-3 text-uppercase">Cadastrar produto</h2>
+    </div>
+
+</div>
+
+<div class="container-fluid">
+	<form method="POST" action="/cadastrar" name="formProduto">
+		
+		<div class="form-group">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <label>Nome</label>
+                    <input type="text" class="form-control" required name="nome"/>
+                </div>
+                <div class="col-md-3">
+                    <label>Preço</label>
+                    <input type="text" class="form-control" placeholder="R$" required name="valor"/>
+                </div>
+                <div class="col-md-3 mt-4 text-start">
+                    <button class="btn  btn-dark" type="submit" onclick="validar()">Cadastrar</button>
+                    <a href="/produtos" class="btn  btn-secondary">Voltar</a>
+                </div>
+            </div>
+		</div>
+	</form>
+    {{#if alert}}
+        <div class="alert alert-sucess alert-dismissible fade show" role="alert">
+            {{alert}}
+        </div>
+    {{/if}}
+</div>
+
+
+
+<script type="text/javascript">
+    function validar() {
+        let formProduto.nome;
+        let formProduto.valor;
+        if (nome.value.lenght < 2) {
+            alert("Por favor, preencha o nome do produto corretamente (deve possuir no mínimo 2 caracteres)");
+        }
+        if (isNaN(valor.value)){
+            alert("Por favor, preencha o valor do produto corretamente (deve ser um valor numérico)");
+        }
+        nome.focus();
+        valor.focus();
+    }
+</script>
